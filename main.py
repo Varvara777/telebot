@@ -1,6 +1,8 @@
 import telebot
 from telebot import types
-list_hi=['Привет']
+list_hi=['Привет','привет']
+list_pol=['Мальчик','мальчик']
+list_pol1=['Девочка','девочка']
 # Объект бота
 bot=telebot.TeleBot('8071247903:AAF0hawJrJpNLcqQ_zgbnnpXV0An1GI0efA')
 
@@ -34,7 +36,22 @@ def get_text_messages(message):
     elif message.text=='🥰 Кнопка помощи':
         bot.send_message(message.from_user.id, 'Как я могу помочь Вам?')
     elif message.text=='🚀 Старт':
-        bot.send_message(message.from_user.id, 'Давайте выберем для Вас необходимую игрушку? Какой пол у вашего ребенка?')
+        bot.send_message(message.from_user.id, 'Давайте выберем для Вас необходимую игрушку? Для кого выбираем? Мальчик? Девочка?')
+
+    elif message.text in list_pol:
+        bot.send_message(message.from_user.id,'Какой возраст? Выберите нужный номер:\n 1) от 0 до 3 \n '
+                                              '2) от 3 до 5\n'
+                                              '3) от 5 до 7\n'
+                                              '4) от 7 до 12'
+
+                         )
+    elif message.text in list_pol1:
+        bot.send_message(message.from_user.id,'Какой возраст? Выберите нужный номер:\n 1) от 0 до 3 \n '
+                                              '2) от 3 до 5\n'
+                                              '3) от 5 до 7\n'
+                                              '4) от 7 до 12'
+
+                         )
     else:
         print(f'Пользователь{message.from_user.id} ну не так умён')
         bot.send_message(message.from_user.id,'Говорите по-русски')
